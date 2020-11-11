@@ -26,6 +26,11 @@ app.use((err, req, res, next) => {
     res.sendStatus(500);
 });
 
+
+// start import osm data to mongo
+require('./converter/pbf_reader.js').start();
+
+
 app.listen(config.port, () => {
     console.log('Geocoder listening on port', config.port);
 });
